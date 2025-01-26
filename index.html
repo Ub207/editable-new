@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editable and Shareable Resume</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;-
+    }
+    header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    .container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      color: #4CAF50;
+    }
+    .section {
+      margin-bottom: 1.5rem;
+    }
+    .download-btn {
+      display: inline-block;
+      background-color: #4CAF50;
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      margin-top: 1rem;
+    }
+    .download-btn:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Resume Creator</h1>
+  </header>
+  <div class="container">
+    <div class="section">
+      <h2>Editable Resume</h2>
+      <p>Use the below form to edit your resume:</p>
+      <form id="resumeForm">
+        <label for="name">Full Name:</label><br>
+        <input type="text" id="name" name="name" placeholder="Enter your full name" required><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required><br><br>
+
+        <label for="phone">Phone Number:</label><br>
+        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required><br><br>
+
+        <label for="summary">Professional Summary:</label><br>
+        <textarea id="summary" name="summary" rows="4" placeholder="Write a short professional summary"></textarea><br><br>
+
+        <label for="skills">Skills:</label><br>
+        <input type="text" id="skills" name="skills" placeholder="Enter your skills (comma-separated)"><br><br>
+
+        <label for="experience">Experience:</label><br>
+        <textarea id="experience" name="experience" rows="4" placeholder="Describe your work experience"></textarea><br><br>
+
+        <label for="education">Education:</label><br>
+        <textarea id="education" name="education" rows="4" placeholder="List your education details"></textarea><br><br>
+
+        <button type="button" id="generateBtn">Generate Resume</button>
+      </form>
+    </div>
+
+    <div class="section">
+      <h2>Shareable Resume</h2>
+      <p>Click the link below to view and share your resume:</p>
+      <a href="shareable-resume.html" class="download-btn" target="_blank">View and Download Resume</a>
+    </div>
+  </div>
+  <script type="module">
+    document.getElementById('generateBtn').addEventListener('click', () => {
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const summary = document.getElementById('summary').value;
+      const skills = document.getElementById('skills').value;
+      const experience = document.getElementById('experience').value;
+      const education = document.getElementById('education').value;
+
+      const resumeData = {
+        name,
+        email,
+        phone,
+        summary,
+        skills,
+        experience,
+        education
+      };
+
+      console.log('Generated Resume Data:', resumeData);
+      alert('Resume has been generated! Check the console for details.');
+    });
+  </script>
+</body>
+</html>
